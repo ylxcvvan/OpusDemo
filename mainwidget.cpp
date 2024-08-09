@@ -13,19 +13,15 @@ MainWidget::MainWidget(QWidget *parent)
     ui->lineEditSampleSize->setInputMask("00");  // 限制输入为最多2位整数
     ui->lineEditPort->setInputMask("00000");  // 限制输入为最多5位数字
 
+    receiver = new Receiver(this);
+    sender = new Sender(this);
 }
 
 MainWidget::~MainWidget()
 {
 
     // 停止并等待线程结束
-    sender->requestInterruption();
-    sender->quit();
-    sender->wait();
 
-    receiver->requestInterruption();
-    receiver->quit();
-    receiver->wait();
 
 
     delete ui;
@@ -57,8 +53,7 @@ void MainWidget::on_pushButtonBegin_clicked()
     qDebug() << "IP Address:" << ip;
     qDebug() << "Port:" << port;
 
-    receiver = new Receiver(this);
-    sender = new Sender(this);
+
 
 
     receiver->setAudioFormat(SampleRate,Channel,SampleSize,Codec);

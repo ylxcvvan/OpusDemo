@@ -28,7 +28,7 @@ void Sender::run()
 {
     // 在 run() 方法中创建 QAudioInput 和 QUdpSocket
     QAudioInput *audioInput = new QAudioInput(format);
-    udpSocket = new QUdpSocket(this);
+    udpSocket = new QUdpSocket();
 
     int error;
     opusEncoder = opus_encoder_create(format.sampleRate(), format.channelCount(), OPUS_APPLICATION_VOIP, &error);

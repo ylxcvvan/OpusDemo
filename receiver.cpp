@@ -34,7 +34,7 @@ void Receiver::run()
     }
 
      QAudioOutput *audioOutput = new QAudioOutput(format);
-    udpSocket = new QUdpSocket(this);
+    udpSocket = new QUdpSocket();
     udpSocket->bind(QHostAddress::Any, listeningPort);
 
     QIODevice *audioDevice = audioOutput->start();
