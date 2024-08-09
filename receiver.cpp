@@ -61,7 +61,7 @@ void Receiver::run()
             if (frameSize > 0) {
                 audioDevice->write(decodedData.constData(), frameSize * format.bytesPerFrame());
             }
-            qDebug()<<frameSize * format.bytesPerFrame();
+
         }
     }
 

@@ -21,7 +21,18 @@ MainWidget::~MainWidget()
 {
 
     // 停止并等待线程结束
-
+    if (receiver) {
+        receiver->requestInterruption(); // 请求停止线程
+        receiver->wait(); // 等待线程退出
+        delete receiver;
+        receiver = nullptr; // 防止悬挂指针
+    }
+    if (sender) {
+        sender->requestInterruption(); // 请求停止线程
+        sender->wait(); // 等待线程退出
+        delete sender;
+        sender = nullptr; // 防止悬挂指针
+    }
 
 
     delete ui;
