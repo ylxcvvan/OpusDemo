@@ -23,13 +23,6 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="lineEditSampleRate">
-       <property name="text">
-        <string>48000</string>
-       </property>
-      </widget>
-     </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
@@ -70,6 +63,53 @@
        <property name="text">
         <string>audio/pcm</string>
        </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QComboBox" name="lineEditSampleRate">
+       <property name="currentIndex">
+        <number>6</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>8000</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>12000</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>16000</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>24000</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>32000</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>44100</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>48000</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>96000</string>
+        </property>
+       </item>
       </widget>
      </item>
     </layout>

@@ -8,7 +8,6 @@ MainWidget::MainWidget(QWidget *parent)
     ui->setupUi(this);
 
     //设置输入遮罩
-    ui->lineEditSampleRate->setInputMask("00000");  // 限制输入为最多5位整数
     ui->lineEditChannel->setInputMask("00");  // 限制输入为最多2位整数
     ui->lineEditSampleSize->setInputMask("00");  // 限制输入为最多2位整数
     ui->lineEditPort->setInputMask("00000");  // 限制输入为最多5位数字
@@ -40,7 +39,7 @@ MainWidget::~MainWidget()
 
 void MainWidget::on_pushButtonBegin_clicked()
 {
-    int SampleRate=ui->lineEditSampleRate->text().toInt();
+    int SampleRate=ui->lineEditSampleRate->currentText().toInt();
     int Channel=ui->lineEditChannel->text().toInt();
     int SampleSize=ui->lineEditSampleSize->text().toInt();
     QString Codec=ui->lineEditCodec->text();
@@ -63,8 +62,6 @@ void MainWidget::on_pushButtonBegin_clicked()
     qDebug() << "Network Settings:";
     qDebug() << "IP Address:" << ip;
     qDebug() << "Port:" << port;
-
-
 
 
     receiver->setAudioFormat(SampleRate,Channel,SampleSize,Codec);
